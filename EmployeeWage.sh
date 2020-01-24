@@ -1,5 +1,6 @@
 #!/bin/bash -x
 
+declare -A EmpDailyWage
 echo "Welcome to Employee Wage Computation Program"
 
 PART_TIME_EMPLOYEE=1;
@@ -41,7 +42,7 @@ do
 	(( TOTAL_WORKING_DAYS++ ))
 	empHrs="$( getWorkingHours $((RANDOM%3)) )"
 	TOTAL_EMPLOYEE_HRS=$(($TOTAL_EMPLOYEE_HRS+$empHrs))
-	EmpDailyWage[$TOTAL_WORKING_DAYS]="$( getDailyWage $empHrs )"
+	EmpDailyWage[Day" $TOTAL_WORKING_DAYS"]="$( getDailyWage $empHrs )"
 done
 
 TOTAL_SALARY=$(($TOTAL_EMPLOYEE_HRS*$EMP_RATE_PER_HR))
